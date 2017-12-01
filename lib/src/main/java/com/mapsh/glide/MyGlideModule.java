@@ -1,4 +1,4 @@
-package com.mapsh.glide.progress;
+package com.mapsh.glide;
 
 import android.content.Context;
 import android.os.Handler;
@@ -37,8 +37,8 @@ import okio.Source;
  */
 
 @GlideModule
-public class MyGlide extends AppGlideModule {
-    public static final String TAG = "MyGlide";
+public class MyGlideModule extends AppGlideModule {
+    public static final String TAG = "MyGlideModule";
 
     @Override
     public void applyOptions(Context context, GlideBuilder builder) {

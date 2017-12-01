@@ -1,16 +1,17 @@
-package com.mapsh.glide.progress;
+package com.mapsh.glide;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
+import com.mapsh.glide.GlideApp;
 
 /**
  * @author mapsh on 2017/12/1 09:59.
  */
 
-public abstract class ProgressTarget <T, Z> extends WrappingTarget<Z> implements MyGlide.UIProgressListener {
+public abstract class ProgressTarget <T, Z> extends WrappingTarget<Z> implements MyGlideModule.UIProgressListener {
     private static String TAG = ProgressTarget.class.getName();
     private T model;
     private boolean ignoreProgress = true;
@@ -95,7 +96,7 @@ public abstract class ProgressTarget <T, Z> extends WrappingTarget<Z> implements
     protected abstract void onDelivered();
 
     private void start() {
-        MyGlide.expect(toUrlString(model), this);
+        MyGlideModule.expect(toUrlString(model), this);
         ignoreProgress = false;
         onProgress(0, Long.MAX_VALUE);
     }
@@ -105,7 +106,7 @@ public abstract class ProgressTarget <T, Z> extends WrappingTarget<Z> implements
         ignoreProgress = true;
         T model = this.model; // save in case it gets modified
         onDelivered();
-        MyGlide.forget(toUrlString(model));
+        MyGlideModule.forget(toUrlString(model));
         this.model = null;
     }
 

@@ -1,4 +1,4 @@
-package com.mapsh.glide.progress;
+package com.mapsh.glide;
 
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
